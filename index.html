@@ -34,7 +34,7 @@
     <body>
 
         <!-- Top content -->
-        <div class="top-content">
+        <div class="top-content" id="home">
 
             <div class="inner-bg">
                 <div class="container">
@@ -55,39 +55,31 @@
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="" method="post" class="login-form">
+<!--                                <form role="form" action="" method="post" class="login-form">-->
                                     <div class="form-group">
                                         <label class="sr-only" for="form-username">E-mail</label>
-                                        <input type="email" name="form-username" placeholder="E-mail" class="form-username form-control" id="inputEmail">
+                                        <input type="email" name="form-username" placeholder="E-mail" class="form-username form-control" id="inputEmail" autofocus required>
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-password">Contraseña</label>
-                                        <input type="password" name="form-password" placeholder="Contraseña" class="form-password form-control" id="inputPassword">
+                                        <input type="password" name="form-password" placeholder="Contraseña" class="form-password form-control" id="inputPassword" required>
                                     </div>
-                                    <button type="submit" class="btn">Iniciar sesión</button>
-                                </form>
+                                    <a href="#" class="forgot-password">¿Olvido su contraseña?</a><br>
+                                    <button id="boton1" type="submit" class="btn" onclick="login()">Iniciar sesión</button>
+<!--                                </form>-->
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-         <!--               <div class="col-sm-6 col-sm-offset-3 social-login">
-                            <h3>...or login with:</h3>
-                            <div class="social-login-buttons">
-                                <a class="btn btn-link-2" href="#">
-                                    <i class="fa fa-facebook"></i> Facebook
-                                </a>
-                                <a class="btn btn-link-2" href="#">
-                                    <i class="fa fa-twitter"></i> Twitter
-                                </a>
-                                <a class="btn btn-link-2" href="#">
-                                    <i class="fa fa-google-plus"></i> Google Plus
-                                </a>
-                            </div>
-                        </div>-->
                     </div>
                 </div>
             </div>
 
+        </div>
+        
+        <!--Usuario logeuado-->
+        <div class="col-sm-8 col-sm-offset-2 text" id="login_user" style="display: none">
+            <h1 style="color: white"><strong>Bienvenido de nuevo</strong></h1>
+            <p id="nombre_user"></p>
+           <button  id="boton2" class="btn" type="submit" onclick="logout()">Cerrar Sesión</button>
         </div>
 
 
@@ -96,10 +88,23 @@
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
+        
+        <!--Script para conectar a Firebase-->
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBkZZiRRp1a3sLV4OXfm5nzyZ8QoOzO-Do",
+                authDomain: "loginbd-4da79.firebaseapp.com",
+                databaseURL: "https://loginbd-4da79.firebaseio.com",
+                projectId: "loginbd-4da79",
+                storageBucket: "loginbd-4da79.appspot.com",
+                messagingSenderId: "132077969413"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="index.js"></script>
 
-        <!--[if lt IE 10]>
-<script src="assets/js/placeholder.js"></script>
-<![endif]-->
 
     </body>
 
